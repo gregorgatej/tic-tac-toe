@@ -1,11 +1,13 @@
 module TicTacToe
   
   class Game
+
+    attr_accessor :board
     
     def initialize
-      player_x = Player.new('x')
-      player_o = Player.new('o')
-      board = Board.new
+      @player_x = Player.new('x')
+      @player_o = Player.new('o')
+      @board = Board.new
     end
 
     def finished?
