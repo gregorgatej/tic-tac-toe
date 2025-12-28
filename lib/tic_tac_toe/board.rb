@@ -38,10 +38,8 @@ module TicTacToe
       end
     end
 
-    def display
-      self.state.each do |row|
-        puts row.join(" ")
-      end
+    def to_s
+      self.state.map{ |row| row.join(" ") }.join("\n")
     end
 
     def make_mark(mark, move_number)
