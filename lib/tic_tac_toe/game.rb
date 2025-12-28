@@ -1,5 +1,4 @@
 module TicTacToe
-  
   class Game
 
     attr_reader :player_x, :player_o, :board

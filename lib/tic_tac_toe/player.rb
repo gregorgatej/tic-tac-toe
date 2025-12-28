@@ -1,5 +1,4 @@
 module TicTacToe
-  
   class Player
     attr_accessor :mark
 

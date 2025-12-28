@@ -14,37 +14,12 @@ module TicTacToe
                 ["7", "8", "9"]]
     end
 
-    def self.map_number_to_board(number)
-      case number
-      when 1 
-        POSITIONS[:first]
-      when 2
-        POSITIONS[:second]
-      when 3 
-        POSITIONS[:third]
-      when 4
-        POSITIONS[:fourth]
-      when 5
-        POSITIONS[:fifth]
-      when 6
-        POSITIONS[:sixth]
-      when 7
-        POSITIONS[:seventh]
-      when 8
-        POSITIONS[:eighth]
-      when 9
-        POSITIONS[:ninth]
-      else
-        raise ArgumentError, "Provided value doesn't map to any board position"
-      end
-    end
-
     def to_s
       state.map{ |row| row.join(" ") }.join("\n")
     end
 
     def make_mark(mark, move_number)
-      mark_position = Board.map_number_to_board(move_number)
+      mark_position = map_number_to_board(move_number)
       row, col = mark_position
       state[row][col] = mark
     end
@@ -71,6 +46,33 @@ module TicTacToe
       return true if (0..2).all? { |i| state[i][2-i] == mark }
     
       false
+    end
+
+    private
+    
+    def map_number_to_board(number)
+      case number
+      when 1 
+        POSITIONS[:first]
+      when 2
+        POSITIONS[:second]
+      when 3 
+        POSITIONS[:third]
+      when 4
+        POSITIONS[:fourth]
+      when 5
+        POSITIONS[:fifth]
+      when 6
+        POSITIONS[:sixth]
+      when 7
+        POSITIONS[:seventh]
+      when 8
+        POSITIONS[:eighth]
+      when 9
+        POSITIONS[:ninth]
+      else
+        raise ArgumentError, "Provided value doesn't map to any board position"
+      end
     end
   end
 end
