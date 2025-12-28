@@ -4,6 +4,8 @@ module TicTacToe
     POSITIONS = {first:   [0,0], second: [0,1], third: [0,2],
                  fourth:  [1,0], fifth:  [1,1], sixth: [1,2],
                  seventh: [2,0], eighth: [2,1], ninth: [2,2]}
+
+    # WINNING_STATES = {[0,0] }
     
     attr_accessor :state
 
@@ -56,9 +58,20 @@ module TicTacToe
       number_of_marks
     end
 
-    def winning_state?
-      # TODO
-    end
+    def winning_state?(mark)
+      # Check rows
+      return true if self.state.any? { |row| row.all?(mark) }
+    
+      # Check columns
+      (0..2).each do |col|
+        return true if (0..2).all? { |row| self.state[row][col] == mark }
+      end
 
+      # Check diagonals
+      return true if (0..2).all? { |i| self.state[i][i] == mark }
+      return true if (0..2).all? { |i| self.state[i][2-i] == mark }
+    
+      false
+    end
   end
 end
