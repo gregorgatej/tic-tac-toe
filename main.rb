@@ -21,3 +21,5 @@ p game.board.winning_state?("x")
 p game.finished_by_win?
 
 puts game.who_won?
+
+p TicTacToe::Board::POSITIONS
