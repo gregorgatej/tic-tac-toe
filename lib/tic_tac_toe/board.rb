@@ -8,18 +8,18 @@ module TicTacToe
     attr_accessor :state
 
     def initialize
-      @state = [["_", "_", "_"],
-                ["_", "_", "_"],
-                ["_", "_", "_"]]
+      @state = [["1", "2", "3"],
+                ["4", "5", "6"],
+                ["7", "8", "9"]]
     end
 
     def self.map_number_to_board(number)
       case number
-      when 7 
+      when 1 
         POSITIONS[:first]
-      when 8
+      when 2
         POSITIONS[:second]
-      when 9 
+      when 3 
         POSITIONS[:third]
       when 4
         POSITIONS[:fourth]
@@ -27,11 +27,11 @@ module TicTacToe
         POSITIONS[:fifth]
       when 6
         POSITIONS[:sixth]
-      when 1
+      when 7
         POSITIONS[:seventh]
-      when 2
+      when 8
         POSITIONS[:eighth]
-      when 3
+      when 9
         POSITIONS[:ninth]
       else
         raise ArgumentError, "Provided value doesn't map to any board position"
