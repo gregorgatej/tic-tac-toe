@@ -20,4 +20,4 @@ p game.board.winning_state?("x")
 
 p game.finished_by_win?
 
-p game.who_won?
+puts game.who_won?

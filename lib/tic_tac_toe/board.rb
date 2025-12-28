@@ -39,18 +39,18 @@ module TicTacToe
     end
 
     def to_s
-      self.state.map{ |row| row.join(" ") }.join("\n")
+      state.map{ |row| row.join(" ") }.join("\n")
     end
 
     def make_mark(mark, move_number)
       mark_position = Board.map_number_to_board(move_number)
       row, col = mark_position
-      self.state[row][col] = mark
+      state[row][col] = mark
     end
 
     def nr_of_marks(mark)
       nr_of_marks = 0
-      self.state.each do |row|
+      state.each do |row|
         nr_of_marks += row.count(mark)
       end
       nr_of_marks
@@ -58,16 +58,16 @@ module TicTacToe
 
     def winning_state?(mark)
       # Check rows
-      return true if self.state.any? { |row| row.all?(mark) }
+      return true if state.any? { |row| row.all?(mark) }
     
       # Check columns
       (0..2).each do |col|
-        return true if (0..2).all? { |row| self.state[row][col] == mark }
+        return true if (0..2).all? { |row| state[row][col] == mark }
       end
 
       # Check diagonals
-      return true if (0..2).all? { |i| self.state[i][i] == mark }
-      return true if (0..2).all? { |i| self.state[i][2-i] == mark }
+      return true if (0..2).all? { |i| state[i][i] == mark }
+      return true if (0..2).all? { |i| state[i][2-i] == mark }
     
       false
     end

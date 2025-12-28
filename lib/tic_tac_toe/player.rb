@@ -6,5 +6,9 @@ module TicTacToe
     def initialize(mark)
       @mark = mark
     end
+
+    def to_s
+      "Player with mark \"#{mark}\""
+    end
   end
 end
