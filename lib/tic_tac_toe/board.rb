@@ -43,7 +43,9 @@ module TicTacToe
     end
 
     def make_mark(mark, move_number)
-      # TODO
+      mark_position = Board.map_number_to_board(move_number)
+      row, col = mark_position
+      self.state[row][col] = mark
     end
 
     def number_of_marks_per_player
