@@ -48,8 +48,12 @@ module TicTacToe
       self.state[row][col] = mark
     end
 
-    def number_of_marks_per_player
-      # TODO
+    def number_of_marks(mark)
+      number_of_marks = 0
+      self.state.each do |row|
+        number_of_marks += row.count(mark)
+      end
+      number_of_marks
     end
 
     def winning_state?
