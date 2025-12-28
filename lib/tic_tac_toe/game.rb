@@ -10,13 +10,13 @@ module TicTacToe
       @board = Board.new
     end
 
-    def finished?
+    def finished_by_win?
       board.winning_state?("x") || board.winning_state?("o")
     end
 
     def who_won?
-      # TODO
+      return "x" if board.nr_of_marks("x") > board.nr_of_marks("o")
+      "o"
     end
   end
-
 end
