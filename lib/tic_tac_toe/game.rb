@@ -5,16 +5,16 @@ module TicTacToe
     attr_reader :player_x, :player_o, :board
     
     def initialize
-      @player_x = Player.new('x')
-      @player_o = Player.new('o')
+      @player_x = Player.new("x")
+      @player_o = Player.new("o")
       @board = Board.new
     end
 
     def finished?
-      # TODO
+      board.winning_state?("x") || board.winning_state?("o")
     end
 
-    def name_of_winner
+    def who_won?
       # TODO
     end
   end

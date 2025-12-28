@@ -4,8 +4,6 @@ module TicTacToe
     POSITIONS = {first:   [0,0], second: [0,1], third: [0,2],
                  fourth:  [1,0], fifth:  [1,1], sixth: [1,2],
                  seventh: [2,0], eighth: [2,1], ninth: [2,2]}
-
-    # WINNING_STATES = {[0,0] }
     
     attr_accessor :state
 

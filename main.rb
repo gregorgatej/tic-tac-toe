@@ -15,5 +15,7 @@ game.board.make_mark(game.player_x.mark, 4)
 puts game.board
 puts game.board.number_of_marks("x");
 
-puts "Winning states:"
+puts "Any winning states?"
 p game.board.winning_state?("x")
+
+p game.finished?
