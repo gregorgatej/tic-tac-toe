@@ -1,8 +1,7 @@
 module TicTacToe
   class Game
-
     attr_reader :player_x, :player_o, :board
-    
+
     def initialize
       @player_x = Player.new("x")
       @player_o = Player.new("o")
@@ -16,7 +15,7 @@ module TicTacToe
            "depicting one of the possible mark positions:"
       puts board
       player_cycler = make_player_cycler(starting_player)
-      while (board.nr_of_marks("x") + board.nr_of_marks("o")) != 9 do
+      while (board.nr_of_marks("x") + board.nr_of_marks("o")) != 9
         current_player = player_cycler.next
         puts "#{current_player}, where will you put your mark?"
         player_move = gets.chomp
@@ -39,17 +38,17 @@ module TicTacToe
 
     def determine_winner
       return player_x if board.nr_of_marks(player_x.mark) > board.nr_of_marks(player_o.mark)
+
       player_o
     end
 
     def pick_random_starter
-      return [player_x, player_o].sample
+      [player_x, player_o].sample
     end
 
     def make_player_cycler(starting_player)
       players = [player_x, player_o]
-      player_cycler = players.rotate(players.index(starting_player)).cycle
-      return player_cycler
+      players.rotate(players.index(starting_player)).cycle
     end
   end
 end

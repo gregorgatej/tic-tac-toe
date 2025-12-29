@@ -1,21 +1,21 @@
 module TicTacToe
   class Board
-    POSITIONS = {first:   [0, 0], second: [0, 1], third: [0, 2],
-                 fourth:  [1, 0], fifth:  [1, 1], sixth: [1, 2],
-                 seventh: [2, 0], eighth: [2, 1], ninth: [2, 2]}
-    
+    POSITIONS = { first: [0, 0], second: [0, 1], third: [0, 2],
+                  fourth: [1, 0], fifth:  [1, 1], sixth: [1, 2],
+                  seventh: [2, 0], eighth: [2, 1], ninth: [2, 2] }
+
     private_constant :POSITIONS
 
     attr_accessor :state
 
     def initialize
-      @state = [["1", "2", "3"],
-                ["4", "5", "6"],
-                ["7", "8", "9"]]
+      @state = [%w[1 2 3],
+                %w[4 5 6],
+                %w[7 8 9]]
     end
 
     def to_s
-      state.map{ |row| row.join(" ") }.join("\n")
+      state.map { |row| row.join(" ") }.join("\n")
     end
 
     def make_mark(mark, move_number)
@@ -35,7 +35,7 @@ module TicTacToe
     def winning_state?(mark)
       # Check rows
       return true if state.any? { |row| row.all?(mark) }
-    
+
       # Check columns
       (0..2).each do |col|
         return true if (0..2).all? { |row| state[row][col] == mark }
@@ -43,20 +43,20 @@ module TicTacToe
 
       # Check diagonals
       return true if (0..2).all? { |i| state[i][i] == mark }
-      return true if (0..2).all? { |i| state[i][2-i] == mark }
-    
+      return true if (0..2).all? { |i| state[i][2 - i] == mark }
+
       false
     end
 
     private
-    
+
     def map_number_to_board(number)
       case number.to_i
-      when 1 
+      when 1
         POSITIONS[:first]
       when 2
         POSITIONS[:second]
-      when 3 
+      when 3
         POSITIONS[:third]
       when 4
         POSITIONS[:fourth]
