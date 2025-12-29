@@ -51,7 +51,7 @@ module TicTacToe
     private
     
     def map_number_to_board(number)
-      case number
+      case number.to_i
       when 1 
         POSITIONS[:first]
       when 2
