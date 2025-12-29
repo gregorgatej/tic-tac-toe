@@ -13,14 +13,14 @@ module TicTacToe
       starting_player = pick_random_starter
       puts "#{starting_player} will start the game!"
       player_cycler = make_player_cycler(starting_player)
-      while (game.board.nr_of_marks("x") + game.board.nr_of_marks("o")) != 9 do
+      while (board.nr_of_marks("x") + board.nr_of_marks("o")) != 9 do
         current_player = player_cycler.next
         puts "#{current_player}, where will you put your mark?"
         puts board
         player_move = gets.chomp
-        game.board.make_mark(current_player.mark, player_move)
+        board.make_mark(current_player.mark, player_move)
         puts "New state of the board:"
-        puts game.board
+        puts board
         if finished_by_win?
           puts "#{determine_winner} has won the game!"
           return
