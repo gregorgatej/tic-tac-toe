@@ -10,7 +10,6 @@ module TicTacToe
     end
 
     def play
-      game = Game.new
       starting_player = pick_random_starter
       puts "#{starting_player} will start the game!"
       player_cycler = make_player_cycler(starting_player)
