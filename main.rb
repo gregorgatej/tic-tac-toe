@@ -20,5 +20,12 @@ p game.board.winning_state?("x")
 
 p game.finished_by_win?
 
-puts game.who_won?
+puts game.who_won
+
+starting_player = game.pick_random_starter
+puts starting_player
+player_cycler = game.make_player_cycler(starting_player)
+puts player_cycler.next
+puts player_cycler.next
+
 
